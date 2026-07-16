@@ -21,12 +21,9 @@ export async function fillNumberIfEmpty(
     await numberInput.fill(numberToFill);
     const realBtn = page.getByRole('button', { name: /Subscribe|Continue/ });
 
-    // Div wale button dhoondne ke liye (jahan <div> tag use hua hai)
     const divBtn = page.locator('div.landingJC--default--btn, div.blue-btn');
 
-    // Jo dono mein se mojood ho, uspe click kar do
     await realBtn.or(divBtn).click();
-    // await page.getByText(/Subscribe|Continue/).click();
   } else {
     console.log(`HE Working with: ${currentValue}. Continuing...`);
   }
