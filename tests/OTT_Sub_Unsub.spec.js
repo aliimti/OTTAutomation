@@ -1,9 +1,29 @@
 import { test, expect } from '@playwright/test';
-import { enterPin, ClickConfirm, enterMpin, fillNumberIfEmpty, handleSubscriptionFlow, handleSubscriptionFlow2} from '../utils/helpers.js';
-import { JobupUnsub, startalksUnsub, GamifiUnsub, MaujUnsub, HidayaUnsub, JhoomUnsub, ManzilUnsub, VouchUnsub, QuikloUnsub, SekhoUnsub, HopshopUnsub, RungUnsub } from '../utils/unsub.js';
+import {
+  enterPin,
+  ClickConfirm,
+  enterMpin,
+  fillNumberIfEmpty,
+  handleSubscriptionFlow,
+  handleSubscriptionFlow2,
+  OTPFill1,
+} from '../utils/helpers.js';
+import {
+  JobupUnsub,
+  startalksUnsub,
+  GamifiUnsub,
+  MaujUnsub,
+  HidayaUnsub,
+  JhoomUnsub,
+  ManzilUnsub,
+  VouchUnsub,
+  QuikloUnsub,
+  SekhoUnsub,
+  HopshopUnsub,
+  RungUnsub,
+} from '../utils/unsub.js';
 import dotenv from 'dotenv';
 dotenv.config();
-
 
 test('Jobup subscription and unsubscribe flow', async ({ page }) => {
   console.log('Jobup');
@@ -17,11 +37,11 @@ test('Jobup subscription and unsubscribe flow', async ({ page }) => {
 test('Startalks subscription and unsubscribe flow', async ({ page }) => {
   console.log('Startalks');
   await page.goto(process.env.Startalks);
-  await handleSubscriptionFlow(page, '3078', 3000);
+  await page.waitForTimeout(3000);
+  await handleSubscriptionFlow(page, '3078');
   console.log(process.env.Sub);
   await startalksUnsub(page);
   console.log(process.env.Unsub);
-
 });
 
 test('Gamifi subscription and unsubscribe flow', async ({ page }) => {
@@ -61,7 +81,6 @@ test('Jhoom subscription and unsubscribe flow', async ({ page }) => {
   console.log(process.env.Unsub);
 });
 
-
 test('Manzil subscription and unsubscribe flow', async ({ page }) => {
   console.log('Manzil');
   await page.goto(process.env.Manzil);
@@ -80,7 +99,6 @@ test('Vouch subscription and unsubscribe flow', async ({ page }) => {
   await VouchUnsub(page);
   console.log(process.env.Unsub);
 });
-
 
 test('Quiklo subscription and unsubscribe flow', async ({ page }) => {
   console.log('Quiklo');
@@ -116,4 +134,4 @@ test('Rung subscription and unsubscribe flow', async ({ page }) => {
   console.log(process.env.Sub);
   await RungUnsub(page);
   console.log(process.env.Unsub);
-})
+});
