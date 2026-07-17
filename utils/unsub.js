@@ -36,7 +36,6 @@ export async function HidayaUnsub(page) {
 export async function VouchUnsub(page) {
   await page.waitForTimeout(3000);
   await page.waitForLoadState('networkidle');
-  await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(5000);
   await page
     .getByRole('textbox', { name: '03XXXXXXXXX' })
@@ -69,6 +68,7 @@ export async function SekhoUnsub(page) {
 }
 
 export async function GamifiUnsub(page) {
+  await page.waitForTimeout(3000);
   const response = await page.request.post(
     'https://gamifi.mobi/mapp/jc/unsubscribe',
     {
@@ -88,6 +88,7 @@ export async function GamifiUnsub(page) {
 }
 
 export async function MaujUnsub(page) {
+  await page.waitForTimeout(3000);
   const response = await page.request.post(
     'https://mauj.mobi/api/jc/unsubscribe',
     {
@@ -107,6 +108,7 @@ export async function MaujUnsub(page) {
 }
 
 export async function JhoomUnsub(page) {
+  await page.waitForTimeout(3000);
   const response = await page.request.post(
     'https://jhoom.mobi/JhoomApp/api/jc/unsubscribe',
     {
@@ -146,6 +148,7 @@ export async function ManzilUnsub(page) {
 }
 
 export async function HopshopUnsub(page) {
+  await page.waitForTimeout(3000);
   const response = await page.request.post(
     'https://payments.hopshop.pk/jcms/unsubscribe',
     {
@@ -165,6 +168,7 @@ export async function HopshopUnsub(page) {
 }
 
 export async function RungUnsub(page) {
+  await page.waitForTimeout(3000);
   const response = await page.request.get(
     'http://10.227.240.98/Rung/support/unSubscribe',
     {
