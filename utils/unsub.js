@@ -51,7 +51,7 @@ export async function QuikloUnsub(page) {
   await page.waitForLoadState('networkidle');
   await page.getByRole('button', { name: 'Ok' }).click();
   await page.getByRole('button').click();
-  await page.getByRole('link', { name: 'Unsubscribe' }).click();
+  await page.locator('.dropdown-item.gtm_unsubscribe').click();
   await page.waitForTimeout(3000);
 }
 
@@ -128,7 +128,7 @@ export async function JhoomUnsub(page) {
 }
 
 export async function ManzilUnsub(page) {
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(7000);
   const response = await page.request.post(
     'http://manzil.mobi/api/jc/unsubscribe',
     {
